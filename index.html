@@ -661,16 +661,48 @@
       letter-spacing: 0.5px;
     }
 
-    /* PRINT */
+    /* ── PRINT ── */
     * {
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
       color-adjust: exact !important;
     }
 
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
     @media print {
-      body { background: #F0F0F0; }
-      .page { margin: 0; box-shadow: none; }
+      html, body {
+        width: 210mm;
+        background: white !important;
+      }
+
+      .page {
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: unset !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        overflow: hidden !important;
+        position: relative !important;
+      }
+
+      .cover,
+      .intro-page,
+      .closing {
+        min-height: unset !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        overflow: hidden !important;
+      }
     }
   </style>
 </head>
